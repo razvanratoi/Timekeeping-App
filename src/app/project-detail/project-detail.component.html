@@ -1,0 +1,48 @@
+<div style="display: -moz-inline-stack">
+<button class="button-64" style="margin-left: 20px; margin-top: 10px" (click)="goBack()">Go back</button>
+<h1 class="projtitle"><b>{{project.title}}'s Progression (due to {{project.deadLine}})</b></h1>
+<button *ngIf="role==2" class="button-64" (click)="toTaskDetails()">Add a task</button>
+<button *ngIf="role==3" class="button-64" style="margin-left: 20px" (click)="addEmployees()">Edit team</button></div>
+<div class="row">
+  <div class="column">
+    <h1 style="margin-left: 40px">Tasks</h1>
+    <ul>
+      <li *ngFor="let task of tasks">
+        <ul style="padding-top: 2px">
+          <li style="font-size: x-large"  class="simplelist"><b>{{task.title}}</b></li>
+          <li  class="simplelist" *ngIf="task.status=='Completed'" style="color: green"><b>{{task.status}}</b></li>
+          <li  class="simplelist" *ngIf="task.status=='In progress'" style="color: darkslateblue"><b>{{task.status}}</b></li>
+          <li  class="simplelist" *ngIf="task.status=='In testing'" style="color: khaki"><b>{{task.status}}</b></li>
+          <li class="simplelist">Assigned to: {{this.getEmployeeName(task.employeeId)}}</li>
+        </ul>
+        <button class="taskbutton" (click)="editTask(task.id, 1)">Step up</button>
+        <button class="taskbutton" (click)="editTask(task.id, -1)">Step down</button>
+      </li>
+    </ul>
+  </div>
+  <div  *ngIf="selectTeam" class="column">
+    <h1 style="margin-left: 40px">Team</h1>
+    <ul>
+      <li *ngFor="let emp of team">
+        <ul style="padding-top: 2px; padding-bottom: 2px">
+          <li style="font-size: x-large"  class="simplelist"><b>{{emp.name}}</b></li>
+          <li class="simplelist" ><a style="color: black" href="mailto: {{emp.email}}">{{emp.email}}</a></li>
+          <li class="simplelist">{{emp.phoneNumber}}</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="!selectTeam" class="column">
+    <h1 style="margin-left: 40px">Select employees</h1>
+    <ul>
+      <li *ngFor="let emp of notTeam">
+        <ul style="padding-top: 2px">
+          <li style="font-size: x-large"  class="simplelist"><b>{{emp.name}}</b></li>
+          <li class="simplelist">{{emp.email}}</li>
+          <li class="simplelist">{{emp.phoneNumber}}</li>
+        </ul>
+        <button class="taskbutton" (click)="addEmployee(emp.id)">Add to team</button>
+      </li>
+    </ul>
+</div>
+</div>

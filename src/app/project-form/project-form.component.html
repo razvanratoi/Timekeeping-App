@@ -1,0 +1,22 @@
+<div class="wrapper fadeInDown">
+  <div style="display: inline">
+    <button class="button-64"  style="font-size-adjust: inherit" (click)="goBack()">Go back</button>
+    <h1>Add a new Project!</h1></div>
+  <form>
+    <label for="title">Title: </label><br>
+    <input type="text" id="title" [(ngModel)]="project.title" name="titlu"><br>
+    <label for="description">Description: </label><br>
+    <input type="text" id="description" [(ngModel)]="project.description" name="desc"><br>
+    <label for="deadline">Due to: </label><br>
+    <input type="date" id="deadline" [(ngModel)]="project.deadLine" name="data"><br>
+    <label for="client">Client: </label><br>
+    <select id="client" [(ngModel)]="project.clientId" name="clientid">
+      <option *ngFor="let c of clients" [value]="c.id">{{c.name}}</option>
+    </select><br>
+    <label for="pm">Project Manager: </label><br>
+    <select id="pm" [(ngModel)]="project.projectManager" name="emp">
+      <option *ngFor="let pm of projectManagers" [value]="pm.id">{{pm.name}}</option>
+    </select><br>
+    <input type="submit" class="approve" (click)="save()"><br>
+  </form>
+</div>

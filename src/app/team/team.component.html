@@ -1,0 +1,9 @@
+<mat-dialog-content>
+  <form>
+    <label for="emp">Select Employee: </label><br>
+    <select name="this.proj" id="emp" [(ngModel)]="this.employeeId">
+      <option *ngFor="let emp of employees" [value]="emp.id">{{emp.name}}</option>
+    </select>
+    <input type="submit" class="button-64" value="Submit" (click)="closeDialog()"><br>
+  </form>
+</mat-dialog-content>

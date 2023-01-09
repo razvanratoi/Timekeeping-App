@@ -1,0 +1,37 @@
+<head>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<ng-container class="container">
+  <button class="button-64" role="button" (click)="toEmployeeDetails()"><span class="text">Add Employee</span></button>
+  <button class="button-64" role="button" (click)="toLoggedHours()"><span class="text">See Logged Hours</span></button>
+  <button class="button-64" role="button" (click)="toFreeDays()"><span class="text">See Free Days Requests</span></button>
+  <button class="button-64" role="button" (click)="toProjects()"><span class="text">See Associated Projects</span></button></ng-container>
+<h1 class="active">Employees</h1>
+<table class="styled-table">
+  <thead>
+  <tr>
+    <td>Id</td>
+    <td>Name</td>
+    <td>Hire Date</td>
+    <td>Work Schedule</td>
+    <td>Email</td>
+    <td>Phone Number</td>
+    <td>Role</td>
+    <td>Promote</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let e of employees" class="active-row">
+    <td >{{e.id}}</td>
+    <td >{{e.name}}</td>
+    <td >{{e.hireDate}}</td>
+    <td >{{5 * e.workSchedule}} hours per week</td>
+    <td >{{e.email}}</td>
+    <td>{{e.phoneNumber}}</td>
+    <td>{{getRole(e.roleId)}}</td>
+    <td><i style="font-size: x-large" (click)="promote(e)">&#8679;</i></td>
+  </tr>
+  </tbody>
+</table>
+
+

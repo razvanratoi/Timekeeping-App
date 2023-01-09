@@ -1,0 +1,18 @@
+<div class="wrapper fadeInDown">
+  <h1 class="">Log Worked Hours!</h1>
+    <form>
+      <label for="date">Date: </label><br>
+      <input type="date" id="date" name="this.dateWorked" [(ngModel)]="dateWorked"><br>
+      <label for="start-hour">Starting Hour:</label><br>
+      <input type="text" id="start-hour" name="this.startHour" [(ngModel)]="startHour"><br>
+      <label for="duration">Hours worked: </label><br>
+      <input type="text" id="duration" name="this.hoursWorked" [(ngModel)]="hoursWorked"><br>
+      <label for="projects">Project: </label><br>
+      <select name="this.proj" id="projects" [(ngModel)]="project">
+        <option *ngFor="let proj of projects" >{{proj.title}}</option>
+      </select>
+      <div class="container">
+      <input type="submit" class="button-64" value="Submit" (click)="saveLogged()"><br>
+      <input type="submit" class="button-64" value="Go back" (click)="goBack()"><br></div>
+  </form>
+</div>

@@ -1,0 +1,29 @@
+<ng-container class="container">
+<button class="button-64" role="button" (click)="toDetails()"><span class="text">Log Worked Hours</span></button>
+<button class="button-64" role="button" (click)="toFreeDays()"><span class="text">See Free Days Requests</span></button>
+<button class="button-64" role="button" (click)="toProjects()"><span class="text">See Associated Projects</span></button>
+  <button  *ngIf="role==1" class="button-64" role="button" (click)="toEmployees()"><span class="text">See employees</span></button>
+</ng-container>
+<h1 class="active"*ngIf="employee">Logged Hours of {{employee.name}}</h1>
+<table class="styled-table">
+  <thead>
+    <tr>
+      <td (click)="sortTable(1)">Id </td>
+      <td *ngIf="role==1">Employee</td>
+      <td (click)="sortTable(2)">Date </td>
+      <td (click)="sortTable(3)">Start Hour</td>
+      <td (click)="sortTable(4)">Duration</td>
+      <td (click)="sortTable(5)">Project Id</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let logged of loggedHours" class="active-row">
+      <td>{{logged.id}}</td>
+      <td *ngIf="role==1">{{this.getEmployeeName(logged.employeeId)}}</td>
+      <td (click)="toDetailsId(logged.id)">{{logged.date}}</td>
+      <td>{{logged.startHour}}</td>
+      <td>{{logged.duration}}</td>
+      <td>{{logged.projectId}}</td>
+    </tr>
+  </tbody>
+</table>

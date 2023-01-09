@@ -1,0 +1,21 @@
+<div class="wrapper fadeInDown">
+  <h1 class="">See or Edit Requests!</h1>
+  <form>
+    <label for="date">Name: </label><br>
+    <input type="text" id="date" name="date" [(ngModel)]="employee.name"><br>
+    <label for="mail">E-mail: </label><br>
+    <input type="text" id="mail" name="date" [(ngModel)]="employee.email"><br>
+    <label for="phone">Phone Number: </label><br>
+    <input type="text" id="phone" name="date" [(ngModel)]="employee.phoneNumber"><br>
+    <label for="type">Work Schedule </label><br>
+    <select name="type" id="type" [(ngModel)]="employee.workSchedule">
+      <option value="4">4</option>
+      <option value="6">6</option>
+      <option value="8">8</option>
+    </select>
+    <div class="container">
+      <input type="submit" class="approve" value="Submit" (click)="save()"><br>
+      <input type="submit" class="button-64" value="Go back" (click)="goBack()"><br>
+    </div>
+  </form>
+</div>

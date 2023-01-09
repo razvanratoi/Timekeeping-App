@@ -1,0 +1,23 @@
+<ng-container class="container">
+  <button *ngIf="role==2" class="button-64" role="button" (click)="toProjectForm()"><span class="text">Add a project!</span></button>
+  <button class="button-64" role="button" (click)="toLoggedHours()"><span class="text">See Logged Hours</span></button>
+  <button class="button-64" role="button" (click)="toFreeDays()"><span class="text">See Free Days Request</span></button></ng-container>
+<h1 class="active"*ngIf="employee">Projects associated to {{employee.name}}</h1>
+<table class="styled-table">
+  <thead>
+  <tr>
+    <td>Id</td>
+    <td>Title</td>
+    <td>Description</td>
+    <td>Deadline</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let project of projects" class="active-row">
+    <td (click)="toProjectDetails(project.id, project.clientId, project.projectManager)">{{project.id}}</td>
+    <td (click)="toProjectDetails(project.id, project.clientId, project.projectManager)">{{project.title}}</td>
+    <td (click)="toProjectDetails(project.id, project.clientId, project.projectManager)">{{project.description}}</td>
+    <td (click)="toProjectDetails(project.id, project.clientId, project.projectManager)">{{project.deadLine}}</td>
+  </tr>
+  </tbody>
+</table>

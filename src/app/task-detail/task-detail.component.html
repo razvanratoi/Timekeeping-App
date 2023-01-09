@@ -1,0 +1,12 @@
+<div class="wrapper fadeInDown">
+  <h1 class="">Log Worked Hours!</h1>
+  <form>
+    <label for="date">Title: </label><br>
+    <input type="text" id="date" name="title" [(ngModel)]="this.task.title"><br>
+    <label for="start-hour">Employee assigned: </label><br>
+    <select name="this.proj" id="start-hour" [(ngModel)]="this.task.employeeId">
+      <option *ngFor="let emp of team" [value]="emp.id">{{emp.name}}</option>
+    </select>
+    <input type="submit" class="button-64" value="Submit" (click)="saveTask()"><br>
+  </form>
+</div>

@@ -1,0 +1,19 @@
+<div class="wrapper fadeInDown">
+  <h1 class="">See or Edit Requests!</h1>
+  <form>
+    <label for="date">Date: </label><br>
+    <input type="date" id="date" name="date" [(ngModel)]="request.startDate"><br>
+    <label for="duration">Duration (in days): </label><br>
+    <input type="text" id="duration" name="duration" [(ngModel)]="request.duration"><br>
+    <label for="type">Type of Vacation: </label><br>
+    <select name="type" id="type" [(ngModel)]="request.typeOfVacation">
+      <option  *ngFor="let type of typeOfVacations" request.typeOfVacation="type">{{type}}</option>
+    </select>
+    <div class="container">
+      <input *ngIf="!isCTO()" type="submit" class="approve" value="Submit" (click)="saveRequest()"><br>
+      <input type="submit" class="approve" value="Approve" *ngIf="isCTO()" (click)="review(true)"><br>
+      <input type="submit" class="reject" value="Reject" *ngIf="isCTO()" (click)="review(false)"><br>
+      <input type="submit" class="button-64" value="Go back" (click)="goBack()"><br>
+    </div>
+  </form>
+</div>

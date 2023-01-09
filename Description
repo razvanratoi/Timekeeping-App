@@ -7,3 +7,5 @@ tasks and edit them.
 see clients, add and assign a project manager to a project and add clients.
   The authentication for this app is based on credentials, but password encryption and uniqueness have yet to be implemented.
   The back-end is implemented in Java, using the Spring Boot framework, while the front-end is done in Angular. The database is managed with PostgreSQL.
+  The implementation in Java can be accessed in the `demo` folder, while the front-end technically in the `front` folder, but it may encounter some issues so I posted the
+source files in the `src` folder just to be safe. 

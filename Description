@@ -1,0 +1,9 @@
+  This is a Timekeeping Application that would serve to a company where employees can log their worked hours in, request free days, check those requests, see projects,
+tasks and edit them.
+  There are 4 actors: a regular employee, which mainly can see entries of those enumerated above and add more;
+                      team leader, with the same functionalities as the employee, but can add employees to team for some projects
+                      project manager, that can add tasks to projects
+                      admin, which has universal access across the application, they can see all of the logged hours, free days requests (and also approve/reject them),
+see clients, add and assign a project manager to a project and add clients.
+  The authentication for this app is based on credentials, but password encryption and uniqueness have yet to be implemented.
+  The back-end is implemented in Java, using the Spring Boot framework, while the front-end is done in Angular. The database is managed with PostgreSQL.
